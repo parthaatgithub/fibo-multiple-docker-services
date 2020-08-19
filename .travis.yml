@@ -11,17 +11,17 @@ script:
   - docker run -e CI=true pbasak/fibo-multi-docker npm run test -- --coverage
 
 after_success:
-  - docker build -t pbasak/fibo-multi-client ./client
-  - docker build -t pbasak/fibo-multi-nginx ./nginx
-  - docker build -t pbasak/fibo-multi-server ./server
-  - docker build -t pbasak/fibo-multi-worker ./worker
+  - docker build -t parthabasak/fibo-multi-client ./client
+  - docker build -t parthabasak/fibo-multi-nginx ./nginx
+  - docker build -t parthabasak/fibo-multi-server ./server
+  - docker build -t parthabasak/fibo-multi-worker ./worker
   # Login in to the Docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take these images and push them to docker hub
-  - docker push pbasak/fibo-multi-client
-  - docker push pbasak/fibo-multi-nginx
-  - docker push pbasak/fibo-multi-server
-  - docker push pbasak/fibo-multi-worker
+  - docker push parthabasak/fibo-multi-client
+  - docker push parthabasak/fibo-multi-nginx
+  - docker push parthabasak/fibo-multi-server
+  - docker push parthabasak/fibo-multi-worker
 
 # deploy:
 #   provider: elasticbeanstalk
